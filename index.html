@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas en Inglés para Niños</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/english.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Preguntas en Inglés para Niños</h1>
+    <div id="quiz-container">
+        <div class="question-container">
+            <div class="question" id="question"></div>
+            <input type="text" id="answer" placeholder="Escribe tu respuesta aquí">
+            <div class="answer" id="feedback"></div>
+        </div>
+        <button onclick="nextQuestion()">Siguiente pregunta</button>
+    </div>
+    
+    <script>
+        const questions = [
+            { question: '¿Cómo se dice "hola" en inglés?', answer: 'hello' },
+            { question: '¿Cómo se dice "adiós" en inglés?', answer: 'goodbye' },
+            { question: '¿Cómo se dice "gracias" en inglés?', answer: 'thank you' },
+            { question: '¿Cómo se dice "por favor" en inglés?', answer: 'please' },
+            { question: '¿Cómo se dice "sí" en inglés?', answer: 'yes' },
+            { question: '¿Cómo se dice "no" en inglés?', answer: 'no' },
+            { question: '¿Cómo se dice "gato" en inglés?', answer: 'cat' },
+            { question: '¿Cómo se dice "perro" en inglés?', answer: 'dog' },
+            { question: '¿Cómo se dice "casa" en inglés?', answer: 'house' },
+            { question: '¿Cómo se dice "escuela" en inglés?', answer: 'school' },
+            { question: '¿Cómo se dice "maestro" en inglés?', answer: 'teacher' },
+            { question: '¿Cómo se dice "amigo" en inglés?', answer: 'friend' },
+            { question: '¿Cómo se dice "familia" en inglés?', answer: 'family' },
+            { question: '¿Cómo se dice "libro" en inglés?', answer: 'book' },
+            { question: '¿Cómo se dice "árbol" en inglés?', answer: 'tree' },
+            { question: '¿Cómo se dice "sol" en inglés?', answer: 'sun' },
+            { question: '¿Cómo se dice "luna" en inglés?', answer: 'moon' },
+            { question: '¿Cómo se dice "agua" en inglés?', answer: 'water' },
+            { question: '¿Cómo se dice "comida" en inglés?', answer: 'food' },
+            { question: '¿Cómo se dice "jugar" en inglés?', answer: 'play' },
+            { question: '¿Cómo se dice "dormir" en inglés?', answer: 'sleep' },
+            { question: '¿Cómo se dice "correr" en inglés?', answer: 'run' },
+            { question: '¿Cómo se dice "caminar" en inglés?', answer: 'walk' },
+            { question: '¿Cómo se dice "reir" en inglés?', answer: 'laugh' },
+            { question: '¿Cómo se dice "llorar" en inglés?', answer: 'cry' },
+            { question: '¿Cómo se dice "rápido" en inglés?', answer: 'fast' },
+            { question: '¿Cómo se dice "lento" en inglés?', answer: 'slow' },
+            { question: '¿Cómo se dice "pequeño" en inglés?', answer: 'small' },
+            { question: '¿Cómo se dice "grande" en inglés?', answer: 'big' },
+            { question: '¿Cómo se dice "bonito" en inglés?', answer: 'beautiful' },
+            { question: '¿Cómo se dice "feo" en inglés?', answer: 'ugly' },
+            { question: '¿Cómo se dice "feliz" en inglés?', answer: 'happy' },
+            { question: '¿Cómo se dice "triste" en inglés?', answer: 'sad' },
+            { question: '¿Cómo se dice "caliente" en inglés?', answer: 'hot' },
+            { question: '¿Cómo se dice "frío" en inglés?', answer: 'cold' },
+            { question: '¿Cómo se dice "ver" en inglés?', answer: 'see' },
+            { question: '¿Cómo se dice "oír" en inglés?', answer: 'hear' },
+            { question: '¿Cómo se dice "comer" en inglés?', answer: 'eat' },
+            { question: '¿Cómo se dice "beber" en inglés?', answer: 'drink' },
+            { question: '¿Cómo se dice "sentarse" en inglés?', answer: 'sit' },
+            { question: '¿Cómo se dice "levantarse" en inglés?', answer: 'stand up' },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function showQuestion() {
+            document.getElementById('question').innerText = questions[currentQuestionIndex].question;
+            document.getElementById('answer').value = '';
+            document.getElementById('feedback').innerText = '';
+        }
+
+        function nextQuestion() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById('feedback').innerText = '¡Correcto!';
+            } else {
+                document.getElementById('feedback').innerText = `Incorrecto. La respuesta correcta es "${questions[currentQuestionIndex].answer}".`;
+            }
+
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            setTimeout(showQuestion, 2000); // Espera 2 segundos antes de mostrar la siguiente pregunta
+        }
+
+        window.onload = showQuestion;
+    </script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
